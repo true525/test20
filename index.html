@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音と画像を表示するサイト</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="画像のURLをここに入力してください" alt="表示する画像">
+    <audio id="audio" controls>
+        <source src="音声のURLをここに入力してください" type="audio/mpeg">
+        お使いのブラウザはオーディオ要素をサポートしていません。
+    </audio>
+
+    <script>
+        // ページが読み込まれた時に音声を自動再生する
+        window.addEventListener('load', function() {
+            const audio = document.getElementById('audio');
+            audio.play();
+        });
+    </script>
+</body>
+</html>
