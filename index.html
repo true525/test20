@@ -23,16 +23,18 @@
 </head>
 <body>
     <img id="image" src="https://pub-c546f1400daa4e498382bb237c9dbda2.r2.dev/images.png" alt="表示する画像">
-    <audio id="audio" controls>
+    <audio id="audio" autoplay>
         <source src="https://pub-c546f1400daa4e498382bb237c9dbda2.r2.dev/nc18763_%E3%83%95%E3%82%A1%E3%83%9F%E3%83%9E%E5%85%A5%E5%BA%97%E9%9F%B3.mp3" type="audio/mpeg">
         お使いのブラウザはオーディオ要素をサポートしていません。
     </audio>
 
     <script>
-        // ページが読み込まれた時に音声を自動再生する
+        // ページが読み込まれた時に音声を再生する
         window.addEventListener('load', function() {
             const audio = document.getElementById('audio');
-            audio.play();
+            audio.play().catch(error => {
+                console.error('自動再生がブロックされました:', error);
+            });
         });
     </script>
 </body>
